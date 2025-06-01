@@ -1,6 +1,6 @@
 # **hela_npcdoc** 
 
-The `hela_npcdoc` script provides a fully automated, immersive medical system for RedM servers using NPC doctors. When no human medics are on duty, NPC doctors will take over and offer healing services to injured players. This ensures consistent medical coverage across all hours, improving roleplay continuity and server functionality.
+This script provides a fully automated, immersive medical system for your RedM server using NPC doctors. When no player medics are on duty, NPC doctors will take over and offer healing services to injured players. This ensures consistent medical coverage across all hours, improving roleplay continuity and server functionality.
 
 ## :wrench: Features:
 
