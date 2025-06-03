@@ -21,10 +21,10 @@ Config.NPCDoctor = {
     revivePrice = 30,
 }
 
-Config.Webhook = "https://discord.com/api/webhooks/1297726014373363723/5QK-HRpB1gPgb9RL8AtaC2GoocawjnJrby0mlYrZLDIda1NxRFKkfTobunrNRFNlOvAL"
+Config.Webhook = "YOUR WEBHOOK HERE"
 Config.WHTitle = "Offline Doc Used By:"
-Config.WHIcon =  "https://cdn.discordapp.com/attachments/1074598381705494579/1292467690442854461/Deadwood_RP.png?ex=67048096&is=67032f16&hm=548b74f46407bfcfd8f35ba9aaf8027d31e1ed255c15faba968b6ccb157d4c57&"
-Config.WHFooter = "Deadwood County | "
+Config.WHIcon =  ""
+Config.WHFooter = "SERVER NAME | "
 Config.WHColor = 0x916D44
 
 
