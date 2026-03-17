@@ -7,7 +7,7 @@ Config.Society = "syn" -- Options: "syn" or "dl"
 
 Config.Command = "offlinedoc"
 Config.Negative = true -- Allow players to go negative in money
-Config.Cooldown = 1 -- Cooldown in minutes
+Config.Cooldown = 5 -- Cooldown in minutes
 
 Config.Job = {"doctor", "medic"} -- Name of your medical job
 
