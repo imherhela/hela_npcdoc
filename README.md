@@ -75,4 +75,4 @@ Players type the configured command (default: `/offlinedoc`) in-game. The NPC do
 * Currently fully supported for **VORP Core** and **Syn Society**.
 * **Work in progress** for other society/job systems (e.g., **DL\_Society**, **TPZ\_Core**, etc.) and broader framework compatibility.
 
-# Made by ImHerHela.
+# Made by ImHerHela
