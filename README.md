@@ -1,30 +1,76 @@
 # hela_npcdoc
 
-This script introduces a reliable NPC-based medical system designed for RedM servers. When no human medics are available, NPC doctors will automatically take their place, offering healing services to injured players at configured medical locations. This ensures uninterrupted roleplay and server functionality at all times.
+A lightweight RedM resource that allows players to use an NPC doctor to revive or heal themselves when no medical staff are online. Supports society payments, configurable job checks, and Discord webhook logging.
 
-## :wrench: Features:
+## Installation
 
-* :health_worker: **Dynamic NPC Spawning**
-  Automatically spawns an NPC doctor when no medics are on duty.
+1. Drop the `hela_npcdoc` folder into your server's `resources` directory
+2. Add the following to your `server.cfg`:
+   ```
+   ensure hela_npcdoc
+   ```
+3. Configure `config.lua` to match your setup
+4. Start your server
 
-* :speech_balloon: **Immersive Healing Interaction**
-  Players receive an in-world prompt to be treated by the NPC doctor.
+## Configuration
 
-* :dollar: **Customizable Pricing**
-  Healing costs can be adjusted to suit your economy and job structure.
+All settings are in `config.lua`.
 
-* :hospital: **Always-On Medical Support**
-  Guarantees that injured players can access care, even during low population hours.
+### General
 
-* :gear: **Smart Duty Checks**
-  Integrates with job systems to only activate when no medics are on duty.
+| Option            | Description                                                                          | Default        |
+|-------------------|--------------------------------------------------------------------------------------|----------------|
+| `Config.Language` | UI language. Options: `"en"`, `"es"`, `"fr"`, `"de"`, `"it"`, `"pt"`, `"ru"`, `"nl"` | `"en"`         |
+| `Config.Command`  | The command players use to access the NPC doctor                                     | `"offlinedoc"` |
+| `Config.Cooldown` | Cooldown between uses, in minutes                                                    | `1`            |
+| `Config.Negative` | Whether players can go negative in money when paying                                 | `true`         |
 
-## :package: Dependencies:
+### Jobs
+
+| Option          | Description                                                                       | Default               |
+|-----------------|-----------------------------------------------------------------------------------|-----------------------|
+| `Config.Job`    | List of job names considered medical staff                                        | `{"doctor", "medic"}` |
+| `Config.Prefix` | Optional job prefix (e.g. `"on_"` matches `"on_medic"`). Leave as `""` to disable | `""`                  |
+
+### Society / Payment
+
+| Option              | Description                                          | Default |
+|---------------------|------------------------------------------------------|---------|
+| `Config.UseSociety` | Whether payment goes to a society account            | `true`  |
+| `Config.Society`    | Society framework to use. Options: `"syn"` or `"dl"` | `"syn"` |
+
+### NPC Doctor
+
+| Option                         | Description                       | Default            |
+|--------------------------------|-----------------------------------|--------------------|
+| `Config.NPCDoctor.model`       | Ped model used for the NPC doctor | `"cs_sddoctor_01"` |
+| `Config.NPCDoctor.revivePrice` | Cost to use the NPC doctor        | `30`               |
+
+### Webhook (Discord Logging)
+
+| Option            | Description                                   |
+|-------------------|-----------------------------------------------|
+| `Config.Webhook`  | Your Discord webhook URL                      |
+| `Config.WHTitle`  | Title shown in the embed                      |
+| `Config.WHIcon`   | Icon URL for the embed (leave empty for none) |
+| `Config.WHFooter` | Footer text on the embed                      |
+| `Config.WHColor`  | Embed color as a hex value (e.g. `0x916D44`)  |
+
+## Usage
+
+Players type the configured command (default: `/offlinedoc`) in-game. The NPC doctor is only accessible when no players with a listed medical job are currently on duty.
+
+## Notes
+
+- The NPC doctor is blocked if any player with a matching job (or on-duty prefix) is online
+- Characters with a `NULL` or missing job value will not count as medical staff
+
+## Dependencies:
 
 * `vorp_core`
-* `syn_society`
+* `syn_society` or `dl_society`
 
-## :test_tube: Development Status:
+## Development Status:
 
 * Currently fully supported for **VORP Core** and **Syn Society**.
 * **Work in progress** for other society/job systems (e.g., **DL\_Society**, **TPZ\_Core**, etc.) and broader framework compatibility.
